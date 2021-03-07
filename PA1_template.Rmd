@@ -49,6 +49,10 @@ steps.interval[which(steps.interval$steps == max(steps.interval$steps)), 1]
 ```
 
 ## Imputing missing values
+Number of missing values in the dataset :
+```{r}
+sum(is.na(data$steps))
+```
 My strategy for imputing missing values is substituting missing values with the mean of the 5-minute interval of the values. The new dataset would look like this :
 ```{r}
 newdata <- data

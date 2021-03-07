@@ -460,6 +460,9 @@ with(steps.interval, plot(interval, steps, type = &quot;l&quot;, main = &quot;Av
 </div>
 <div id="imputing-missing-values" class="section level2">
 <h2>Imputing missing values</h2>
+<p>Number of missing values in the dataset :</p>
+<pre class="r"><code>sum(is.na(data$steps))</code></pre>
+<pre><code>## [1] 2304</code></pre>
 <p>My strategy for imputing missing values is substituting missing values with the mean of the 5-minute interval of the values. The new dataset would look like this :</p>
 <pre class="r"><code>newdata &lt;- data
 for (i in 1:nrow(newdata)) {

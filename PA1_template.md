@@ -86,6 +86,15 @@ steps.interval[which(steps.interval$steps == max(steps.interval$steps)), 1]
 ```
 
 ## Imputing missing values
+Number of missing values in the dataset :
+
+```r
+sum(is.na(data$steps))
+```
+
+```
+## [1] 2304
+```
 My strategy for imputing missing values is substituting missing values with the mean of the 5-minute interval of the values. The new dataset would look like this :
 
 ```r
@@ -113,7 +122,7 @@ new.stepssum <- ddply(newdata, .(date), colwise(sum))[, 1:2]
 hist(new.stepssum$steps, xlab = "Number of steps per day", main = "Histogram of the total of steps taken each day")
 ```
 
-![](PA1_template_files/figure-html/unnamed-chunk-8-1.png)<!-- -->
+![](PA1_template_files/figure-html/unnamed-chunk-9-1.png)<!-- -->
 
 The new mean total number of steps taken per day is :
 
@@ -154,4 +163,4 @@ library(lattice)
 with(steps.interval2, xyplot(steps~interval|weekday, type = "l", main = "Average number of steps during a weekend and a weekday", ylab = "Number of steps", xlab = "Interval", layout = c(1, 2)))
 ```
 
-![](PA1_template_files/figure-html/unnamed-chunk-11-1.png)<!-- -->
+![](PA1_template_files/figure-html/unnamed-chunk-12-1.png)<!-- -->
